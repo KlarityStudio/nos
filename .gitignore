@@ -18,7 +18,7 @@ wp-content/wp-cache-config.php
 wp-content/cache/*
 wp-content/cache/supercache/*
 wp-content/themes/twenty*
-
+wp-content/themes/uploads
 
 wp-content/mysql.sql
 
