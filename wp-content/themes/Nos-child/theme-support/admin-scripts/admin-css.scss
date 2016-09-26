@@ -1,0 +1,35 @@
+@import "bourbon";
+
+/*-----     Cars Cpt field custom css     ------*/
+.field-wrapper{
+  @include display(flex);
+  @include justify-content(space-around);
+
+  .meta-row {
+    align-items: center;
+    text-align: center;
+    .meta-th{
+      padding-bottom: 10px;
+      .feature-icon{
+        min-height: 33px;
+      }
+    }
+    &.window{
+      .meta-td{
+        text-align: left;
+      }
+    }
+    
+  }
+  &.specifications{
+    @include flex-wrap(wrap);
+    @include justify-content(initial);
+    .meta-row{
+      width: calc(100% / 5);
+      input, select{
+        width: 96%;
+        margin: 0 2% 20px 2%;
+      }
+    }
+  }
+}
