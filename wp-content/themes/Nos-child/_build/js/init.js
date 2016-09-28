@@ -21,9 +21,9 @@
   }
   function hideEmptyFeatures(){
     if($('body').hasClass('single-cars')){
-      var $featureContainer = $('feature-container').find('ul');
+      var $featureContainer = $('.feature-container').children('ul');
 
-      if ( $featureContainer.empty() ){
+      if ( $featureContainer.children().length == 0 ){
         $('.feature-container').css('display', 'none');
       }
     }
