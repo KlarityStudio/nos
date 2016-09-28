@@ -32,7 +32,6 @@ function nos_scripts() {
 		wp_register_script('nos_initJS', get_stylesheet_directory_uri() . '/_build//js/min/init.min.js', array('jquery'),'1.0.0', true);
 		wp_enqueue_script('nos_initJS');
 
-
 		wp_register_script('nos_jquery', get_stylesheet_directory_uri() . '/_build/js/min/jquery-3.1.1.min.js', array(),'', false);
 		wp_enqueue_script('nos_jquery');
   	}
@@ -64,10 +63,10 @@ function add_slug( $classes ){
 add_filter('body_class' , 'add_slug' );
 
 function wcount(){
-    ob_start();
-    the_content();
-    $content = ob_get_clean();
-    return sizeof(explode(" ", $content));
+  ob_start();
+  the_content();
+  $content = ob_get_clean();
+  return sizeof(explode(" ", $content));
 }
 
 /*------------     Nos Custom Post Menu Page    -----------*/
@@ -79,8 +78,37 @@ function wcount(){
 
 include( get_stylesheet_directory() . '/theme-support/cars-cpt.php');
 
-add_action( 'admin_enqueue_scripts', 'load_admin_styles' );
-		 function load_admin_styles() {
-			 wp_enqueue_style( 'nos_admin_css', get_stylesheet_directory_uri() . '/theme-support/admin-scripts/admin-css.css', false, '1.0.0' );
-			//  wp_enqueue_style( 'admin_js_', get_template_directory_uri() . '/admin-style.js', false, '1.0.0' );
-		 }
+	add_action( 'admin_enqueue_scripts', 'load_admin_styles' );
+
+ function load_admin_styles() {
+	 wp_enqueue_style( 'nos_admin_css', get_stylesheet_directory_uri() . '/theme-support/admin-scripts/admin-css.css', false, '1.0.0' );
+	//  wp_enqueue_style( 'admin_js_', get_template_directory_uri() . '/admin-style.js', false, '1.0.0' );
+ }
+
+ function nos_get_attachment( $num= 1){
+  	$output = ' ';
+  	if (has_post_thumbnail() && $num == 1):
+ 		$output = wp_get_attachment_url( get_post_thumbnail_id( get_the_ID() ) );
+ 			else:
+	 		 	$attachments = get_posts( array(
+	 				'post_type' 	=> 'attachment',
+	 				'numberposts' 	=> $num,
+	 				'post_parent' 	=> get_the_ID()
+	 			) );
+ 				if( $attachments && $num == 1):
+ 					foreach ($attachments as $attachment) :
+ 						$output= wp_get_attachment_url( $attachment->ID);
+ 					endforeach;
+ 					elseif( $attachments && $num > 1 ):
+ 						$output = $attachments;
+ 				endif;
+ 			wp_reset_postdata();
+ 		endif;
+ 	return $output;
+ }
+
+ /*-----     Changes excerpt length to 20 charachter     -----*/
+ function nos_custom_excerpt_length( $length ) {
+     return 20;
+ }
+ add_filter( 'excerpt_length', 'nos_custom_excerpt_length', 999 );

@@ -1,0 +1,12 @@
+<li><div class="">R<?php echo get_post_meta( $post->ID,'price', true); ?></div></li>
+<li><div class="">Make:<?php echo get_post_meta( $post->ID,'make', true); ?></div></li>
+<li><div class="">Year:<?php echo get_post_meta( $post->ID,'year', true); ?></div></li>
+<li><div class="">Mileage:<?php echo get_post_meta( $post->ID,'mileage', true); ?></div></li>
+<li><div class="">Fuel:<?php echo get_post_meta( $post->ID,'fuel', true); ?></div></li>
+<li><div class="">Colour:<?php echo get_post_meta( $post->ID,'colour', true); ?></div></li>
+<li><div class="">Body Type:<?php echo get_post_meta( $post->ID,'shape', true); ?></div></li>
+<li><div class="">Transmission:<?php echo get_post_meta( $post->ID,'trans', true); ?></div></li>
+<li><div class="">Doors:<?php echo get_post_meta( $post->ID,'doors', true); ?></div></li>
+<li><div class="">Engine:<?php echo get_post_meta( $post->ID,'engine', true); ?></div></li>
+<li><div class="">Power (KW):<?php echo get_post_meta( $post->ID,'power', true); ?></div></li>
+<li><div class="">Power (HP):<?php echo get_post_meta( $post->ID,'powerhp', true); ?></div></li>

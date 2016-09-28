@@ -2,8 +2,8 @@
 /*----------     New Cars Custom Post Type     ----------*/
 function newCarCustomPostType(){
 
-	$singular 	            = 'Car';
-	$plural 	              = 'Cars';
+	$singular 	            = 'New Car';
+	$plural 	              = 'New Cars';
 	$labels 	              = array(
 		'name' 					      => $plural,
 		'singular_name' 		  => $singular,
@@ -328,30 +328,32 @@ function car_feature_callback( $post ){
 	        <label class="meta-label">Electric Windows</label>
 	      </div>
 	      <div class="meta-td">
-	        <label for="meta-checkbox-7">Front:</label>
-	        <input type="checkbox" name="meta-checkbox-7" id="meta-checkbox-7" value="Front" <?php if ( isset ( $car_stored_meta['meta-checkbox-7'] ) ) checked( $car_stored_meta['meta-checkbox-7'][0], 'Front' ); ?> />
-	      </div>
-	      <div class="meta-td">
-	        <label for="meta-checkbox-8">Front + Back:</label>
-	        <input type="checkbox" name="meta-checkbox-8" id="meta-checkbox-8" value="Front + Back" <?php if ( isset ( $car_stored_meta['meta-checkbox-8'] ) ) checked( $car_stored_meta['meta-checkbox-8'][0], 'Front + Back' ); ?> />
-	      </div>
+					<form>
+		        <label for="meta-checkbox-7">Front:</label>
+		        <input type="radio" name="meta-checkbox-7" id="meta-checkbox-7" value="Front" <?php if ( isset ( $car_stored_meta['meta-checkbox-7'] ) ) checked( $car_stored_meta['meta-checkbox-7'][0], 'Front' ); ?> />
+		        <label for="meta-checkbox-8">Front + Back:</label>
+		        <input type="radio" name="meta-checkbox-7" id="meta-checkbox-8" value="Front + Back" <?php if ( isset ( $car_stored_meta['meta-checkbox-7'] ) ) checked( $car_stored_meta['meta-checkbox-7'][0], 'Front + Back' ); ?> />
+						<label for="meta-checkbox-8">None</label>
+		        <input type="radio" name="meta-checkbox-7" id="meta-checkbox-8" value="None" <?php if ( isset ( $car_stored_meta['meta-checkbox-7'] ) ) checked( $car_stored_meta['meta-checkbox-7'][0], 'None' ); ?> />
+					</form>
+				</div>
 	    </div>
 	  </div>
 	</div>
-	<div class="addition-specs">
+	<div class="additional-specs">
 		<div class="meta-th">
-			<label for="powerhp" class="meta-label">Use a comma to seperate any additional feature the car has.</label>
+			<label for="interior-textarea" class="meta-label">Use a comma to seperate any additional interior features that the car may have.</label>
 		</div>
 		<div class="meta-td">
-			<textarea name="meta-textarea" id="meta-textarea" ><?php if ( isset ( $car_stored_meta['meta-textarea'] ) ) echo $car_stored_meta['meta-textarea'][0]; ?></textarea>
+			<textarea name="interior-textarea" id="interior-textarea" ><?php if ( isset ( $car_stored_meta['interior-textarea'] ) ) echo $car_stored_meta['interior-textarea'][0]; ?></textarea>
 		</div>
 	</div>
 <?php
 }
 
 function interior_meta_save( $post_id ){
-	//checks save status
 
+	//checks save status
 	$is_autosave = wp_is_post_autosave( $post_id );
 	$is_revision = wp_is_post_revision( $post_id );
 	$is_valid_nonce = ( isset( $_POST['interior_nonce'] ) && wp_verify_nonce( $_POST['interior_nonce'], basename( __FILE__ ) ) ) ? 'true' : 'false';
@@ -388,17 +390,12 @@ function interior_meta_save( $post_id ){
       update_post_meta( $post_id, 'meta-checkbox-6', '' );
   }
   if( isset( $_POST[ 'meta-checkbox-7' ] ) ) {
-      update_post_meta( $post_id, 'meta-checkbox-7', 'Front' );
+      update_post_meta( $post_id, 'meta-checkbox-7', $_POST[ 'meta-checkbox-7' ] );
   } else {
       update_post_meta( $post_id, 'meta-checkbox-7', '' );
   }
-  if( isset( $_POST[ 'meta-checkbox-8' ] ) ) {
-      update_post_meta( $post_id, 'meta-checkbox-8', 'Front + Back' );
-  } else {
-      update_post_meta( $post_id, 'meta-checkbox-8', '' );
-  }
-	if( isset( $_POST[ 'meta-textarea' ] ) ) {
-    update_post_meta( $post_id, 'meta-textarea', $_POST[ 'meta-textarea' ] );
+	if( isset( $_POST[ 'interior-textarea' ] ) ) {
+    update_post_meta( $post_id, 'interior-textarea', $_POST[ 'interior-textarea' ] );
 	}
 }
 
@@ -489,6 +486,14 @@ function car_exterior_callback( $post ){
 	    </div>
 	  </div>
 	</div>
+	<div class="additional-specs">
+		<div class="meta-th">
+			<label for="exterior" class="meta-label">Use a comma to seperate any additional exterior features that the car may have.</label>
+		</div>
+		<div class="meta-td">
+			<textarea name="exterior-textarea" id="exterior-textarea" ><?php if ( isset ( $car_stored_meta['exterior-textarea'] ) ) echo $car_stored_meta['exterior-textarea'][0]; ?></textarea>
+		</div>
+	</div>
 
 <?php
 }
@@ -536,6 +541,9 @@ function exterior_meta_save( $post_id ){
   } else {
       update_post_meta( $post_id, 'checkbox-6', '' );
   }
+	if( isset( $_POST[ 'exterior-textarea' ] ) ) {
+    update_post_meta( $post_id, 'exterior-textarea', $_POST[ 'exterior-textarea' ] );
+	}
 }
 
 add_action('save_post', 'exterior_meta_save');
