@@ -9,10 +9,8 @@
         <div class="advert-images">
           <div class="featured-image">
             <?php $featured_image = nos_get_attachment(); ?>
-            <img class="car-featureImage" src="<?php echo $featured_image; ?>">
-          </div>
-          <div class="car-gallery">
-            <ul>
+            <ul class="car-gallery">
+              <li class="car-featureImage active"><img  src="<?php echo $featured_image; ?>"></li>
               <?php global $post;
               $images = get_children( array (
                 'post_parent'   => $post->ID,

@@ -2,7 +2,7 @@
   .advert-main{
     @include display(flex);
 
-    .featured-image{
+    .active{
       max-width: 700px;
       height: auto;
       img{
@@ -11,15 +11,21 @@
     }
     .car-gallery{
       max-width: 700px;
-      ul{
-        padding: 0;
-        @include display(flex);
-        @include justify-content(space-between);
-        @include flex-wrap(wrap);
-        li{
-          width: calc(94% / 3);
-          list-style: none;
-          padding: 1%;
+      padding: 0;
+      @include display(flex);
+      @include justify-content(space-between);
+      @include flex-wrap(wrap);
+      li{
+        width: calc(94% / 3);
+        list-style: none;
+        padding: 1%;
+        @include order(2);
+        &.active{
+          width: 100%;
+          @include order(1);
+          img{
+            max-width: 700px;
+          }
         }
       }
     }
@@ -42,7 +48,7 @@
           background-color: #009688;
           color: #fff;
           width: 50%;
-          padding: 15px 123px;
+          padding: 15px 119px;
           &:hover{
             text-decoration: none;
           }

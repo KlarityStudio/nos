@@ -70,42 +70,59 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
   display: -moz-flex;
   display: -ms-flexbox;
   display: flex; }
-  .single-cars .advert-main .featured-image {
+  .single-cars .advert-main .active {
     max-width: 700px;
     height: auto; }
-    .single-cars .advert-main .featured-image img {
+    .single-cars .advert-main .active img {
       width: 700px; }
   .single-cars .advert-main .car-gallery {
-    max-width: 700px; }
-    .single-cars .advert-main .car-gallery ul {
-      padding: 0;
-      display: -webkit-box;
-      display: -moz-box;
-      display: box;
-      display: -webkit-flex;
-      display: -moz-flex;
-      display: -ms-flexbox;
-      display: flex;
-      -webkit-box-pack: justify;
-      -moz-box-pack: justify;
-      box-pack: justify;
-      -webkit-justify-content: space-between;
-      -moz-justify-content: space-between;
-      -ms-justify-content: space-between;
-      -o-justify-content: space-between;
-      justify-content: space-between;
-      -ms-flex-pack: justify;
-      -webkit-box-lines: multiple;
-      -moz-box-lines: multiple;
-      box-lines: multiple;
-      -webkit-flex-wrap: wrap;
-      -moz-flex-wrap: wrap;
-      -ms-flex-wrap: wrap;
-      flex-wrap: wrap; }
-      .single-cars .advert-main .car-gallery ul li {
-        width: calc(94% / 3);
-        list-style: none;
-        padding: 1%; }
+    max-width: 700px;
+    padding: 0;
+    display: -webkit-box;
+    display: -moz-box;
+    display: box;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -moz-box-pack: justify;
+    box-pack: justify;
+    -webkit-justify-content: space-between;
+    -moz-justify-content: space-between;
+    -ms-justify-content: space-between;
+    -o-justify-content: space-between;
+    justify-content: space-between;
+    -ms-flex-pack: justify;
+    -webkit-box-lines: multiple;
+    -moz-box-lines: multiple;
+    box-lines: multiple;
+    -webkit-flex-wrap: wrap;
+    -moz-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap; }
+    .single-cars .advert-main .car-gallery li {
+      width: calc(94% / 3);
+      list-style: none;
+      padding: 1%;
+      -webkit-box-ordinal-group: 2;
+      -moz-box-ordinal-group: 2;
+      box-ordinal-group: 2;
+      -webkit-order: 2;
+      -moz-order: 2;
+      order: 2;
+      -ms-flex-order: 2; }
+      .single-cars .advert-main .car-gallery li.active {
+        width: 100%;
+        -webkit-box-ordinal-group: 1;
+        -moz-box-ordinal-group: 1;
+        box-ordinal-group: 1;
+        -webkit-order: 1;
+        -moz-order: 1;
+        order: 1;
+        -ms-flex-order: 1; }
+        .single-cars .advert-main .car-gallery li.active img {
+          max-width: 700px; }
   .single-cars .advert-main .car-specifications {
     height: auto;
     display: -webkit-box;
@@ -138,7 +155,7 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
         background-color: #009688;
         color: #fff;
         width: 50%;
-        padding: 15px 123px; }
+        padding: 15px 119px; }
         .single-cars .advert-main .car-specifications .vehicle-contact a:hover {
           text-decoration: none; }
 .single-cars .features-wrapper .interior-features, .single-cars .features-wrapper .exterior-features {
