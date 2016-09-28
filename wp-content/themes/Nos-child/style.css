@@ -74,7 +74,8 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
     max-width: 700px;
     height: auto; }
     .single-cars .advert-main .active img {
-      width: 700px; }
+      width: 700px;
+      max-height: 335px; }
   .single-cars .advert-main .car-gallery {
     max-width: 700px;
     padding: 0;
