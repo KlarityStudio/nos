@@ -10,6 +10,7 @@
           <div class="featured-image">
             <?php $featured_image = nos_get_attachment(); ?>
             <ul class="car-gallery">
+              <li class="car-featureImage active"><img  src="<?php echo $featured_image; ?>"></li>
               <?php global $post;
               $images = get_children( array (
                 'post_parent'   => $post->ID,
@@ -36,7 +37,7 @@
         </ul>
       </div>
       <div class="features-wrapper">
-        <div class="interior-features">
+        <div class="interior-features feature-container">
           <h2>Interior Features</h2>
           <ul>
             <?php get_template_part( 'includes/modules/module', 'interiorMetaboxes' ); ?>
@@ -52,7 +53,7 @@
             </ul>
           <?php } ?>
         </div>
-        <div class="exterior-features">
+        <div class="exterior-features feature-container">
           <h2>Exterior Features</h2>
           <ul>
             <?php get_template_part( 'includes/modules/module', 'exteriorMetaboxes' ); ?>
