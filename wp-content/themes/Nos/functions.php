@@ -54,7 +54,7 @@ function wcount(){
 //   }
 // add_action('admin_menu', 'nos_post_page');
 
-include( get_stylesheet_directory() . '/theme-support/cars-cpt.php');
+require get_template_directory() . '/theme-support/cars-cpt.php';
 
 	add_action( 'admin_enqueue_scripts', 'load_admin_styles' );
 
