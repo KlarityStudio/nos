@@ -2093,33 +2093,35 @@
     	e.preventDefault();
     	var $ths = $(this);
     	$(this).attr('disabled', 'disabled');
-    	var request = {
-			action: 'delete_import',	
-			data: $(this).parents('form:first').serialize(),				
-			security: wp_all_import_security				
-	    };    	    
 	    var iteration = 1;
+		var request = {
+			action: 'delete_import',
+			data: $(this).parents('form:first').serialize(),
+			security: wp_all_import_security,
+			iteration: iteration
+		};
 		var deleteImport = function(){
+			request.iteration = iteration;
 			$.ajax({
 				type: 'POST',
-				url: ajaxurl + '?iteration=' + iteration,
+				url: ajaxurl,
 				data: request,
-				success: function(response) {		
-					
+				success: function(response) {
+
 					iteration++;
 
 					$ths.parents('form:first').find('.wp_all_import_deletion_log').html('<p>' + response.msg + '</p>');
 
-					if (response.result){																												
+					if (response.result){
 						$('.wp_all_import_functions_preloader').hide();
 						window.location.href = response.redirect;
 					}
 					else
-					{						
+					{
 						deleteImport();
 					}
 				},
-				error: function( jqXHR, textStatus ) {						
+				error: function( jqXHR, textStatus ) {
 					$ths.removeAttr('disabled');
 					$('.wp_all_import_functions_preloader').hide();
 				},

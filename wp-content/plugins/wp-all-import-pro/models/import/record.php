@@ -307,7 +307,7 @@ class PMXI_Import_Record extends PMXI_Model_Record {
 
 						@set_time_limit(0);		
 
-						if ( (int) $this->queue_chunk_number < (int) $this->count )					
+						if ( (int) $this->queue_chunk_number <= (int) $this->count )					
 						{					
 
 							$file = new PMXI_Chunk($filePath, array('element' => $this->root_element, 'encoding' => $this->options['encoding'], 'pointer' => $this->queue_chunk_number));					

@@ -1,12 +1,37 @@
 <?php
 /**
- * This core file should strictly be overwritten via your child theme.
+ * The main template file.
  *
- * We strongly recommend to read Beans documentation to find out more how to
- * customize Beans theme.
+ * This is the most generic template file in a WordPress theme
+ * and one of the two required files for a theme (the other being style.css).
+ * It is used to display a page when nothing more specific matches a query.
+ * E.g., it puts together the home page when no home.php file exists.
  *
- * @author Beans
- * @link   http://www.getbeans.io
+ * @link https://codex.wordpress.org/Template_Hierarchy
+ *
+ * @package nos
  */
 
-beans_load_document();
+get_header(); ?>
+
+
+
+		<?php
+		if ( have_posts() ) :
+
+			/* Start the Loop */
+			while ( have_posts() ) : the_post();
+				if( is_front_page() ){
+						}
+					elseif (is_singular() ) {
+
+					}
+			endwhile;
+
+		endif; ?>
+
+
+
+<?php
+// get_sidebar();
+get_footer();

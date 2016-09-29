@@ -433,7 +433,7 @@
 	height:25px;
 	padding-left: 20px;
 	color:#21759B;
-	font-family: "Open Sans",​sans-serif;
+	/*font-family: "Open Sans",​sans-serif;*/
 	padding-top: 2px;
 	text-decoration: underline;
 	display: block;
@@ -2325,7 +2325,7 @@
 }
 .wpallimport-plugin .wpallimport-cf-menu li a{
 	padding: 0;
-	font-family: "Open Sans",​sans-serif;
+	/*font-family: "Open Sans",​sans-serif;*/
 	font-size: 12px;
 	display: inline;
 	color: #777;

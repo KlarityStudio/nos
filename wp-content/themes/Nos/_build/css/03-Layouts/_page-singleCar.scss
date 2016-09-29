@@ -1,0 +1,90 @@
+.single-cars{
+  .advert-main{
+    @include display(flex);
+
+    .active{
+      max-width: 700px;
+      height: auto;
+      img{
+        width: 700px;
+        height: 400px;
+      }
+    }
+    .car-gallery{
+      max-width: 700px;
+      padding: 0;
+      @include display(flex);
+      @include justify-content(space-between);
+      @include flex-wrap(wrap);
+      li{
+        width: calc(94% / 3);
+        list-style: none;
+        padding: 1%;
+        @include order(2);
+        img{
+          width: 100%;
+        }
+        &.active{
+          width: 100%;
+          @include order(1);
+          img{
+            max-width: 700px;
+            width: initial;
+          }
+        }
+      }
+    }
+    .car-specifications{
+      height: auto;
+      @include display(flex);
+      @include flex-direction(column);
+      width: calc(100vw - 700px);
+      margin: 0;
+      li{
+        padding: 10px;
+        list-style: none;
+        &:nth-of-type(2n){
+          background-color: #eee;
+        }
+      }
+      .vehicle-contact{
+        margin-top: 20px;
+        @include display(flex);
+        @include justify-content(space-between);
+
+        a{
+          background-color: #009688;
+          color: #fff;
+          width: 49%;
+          padding: 15px 0;
+          text-align: center;
+          &:hover{
+            text-decoration: none;
+          }
+        }
+      }
+    }
+  }
+  .features-wrapper{
+    .interior-features, .exterior-features{
+      max-width: 700px;
+      >ul{
+        padding-left: 0;
+        @include display(flex);
+        @include justify-content(space-between);
+        @include flex-wrap(wrap);
+        li{
+          width: 33.3%;
+          @include display(flex);
+          @include flex-direction(column);
+          @include justify-content(space-between);
+          align-items: center;
+          padding: 40px 0;
+          &:nth-of-type(2n){
+            background-color: #eee;
+          }
+        }
+      }
+    }
+  }
+}
