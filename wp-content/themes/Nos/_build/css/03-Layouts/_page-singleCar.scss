@@ -23,6 +23,7 @@
         @include order(2);
         img{
           width: 100%;
+          max-height: 120px;
         }
         &.active{
           width: 100%;
@@ -30,6 +31,7 @@
           img{
             max-width: 700px;
             width: initial;
+            max-height: none;
           }
         }
       }

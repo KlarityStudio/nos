@@ -75,4 +75,7 @@
       </div>
     </div>
   </section>
+  <section id="related-vehicles">
+    <?php related_cars(); ?>
+  </section>
 <?php get_footer(); ?>
