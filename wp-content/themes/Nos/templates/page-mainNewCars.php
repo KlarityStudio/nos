@@ -9,7 +9,7 @@
  get_header(); ?>
 <section>
     <h1><?php the_title(); ?> </h1>
-    <?php 
+    <?php
      $paged = get_query_var( 'paged' ) ? get_query_var( 'paged' ) : 1;
      $count = -1;
      $args = array(
@@ -41,22 +41,22 @@
                 <div class="minor-specifications">
                     <ul>
                         <li>
-                            <div class="">R 
-                                <?php echo get_post_meta( $post->ID,'price', true); ?>
+                            <div class="">R
+                                <?php $price = get_post_meta( $post->ID,'price', true); $formattedNum = number_format($price); echo $formattedNum; ?>
                             </div>
                         </li>
                         <li>
-                            <div class="">Year: 
+                            <div class="">Year:
                                 <?php echo get_post_meta( $post->ID,'year', true); ?>
                             </div>
                         </li>
                         <li>
-                            <div class="">Mileage: 
+                            <div class="">Mileage:
                                 <?php echo get_post_meta( $post->ID,'mileage', true); ?>
                             </div>
                         </li>
                         <li>
-                            <div class="">Transmission: 
+                            <div class="">Transmission:
                                 <?php echo get_post_meta( $post->ID,'trans', true); ?>
                             </div>
                         </li>

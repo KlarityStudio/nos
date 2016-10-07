@@ -171,7 +171,7 @@ function related_cars(){
 	    		<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>" rel="bookmark">
 	      		<div class="advert-image" style="background-image: url(<?php echo $thumb[0]; ?>)"></div>
 	      		<h2 class="entry-title"><?php the_title() ?></h2>
-						<p><span>R </span><?php echo get_post_meta( $post->ID,'price', true); ?></p>
+						<p><span>R </span><?php $price = get_post_meta( $post->ID,'price', true); $formattedNum = number_format($price); echo $formattedNum; ?></p>
 	     		</a>
 					<a href="<?php the_permalink(); ?>">View Vehicle</a>
 	    	</li>

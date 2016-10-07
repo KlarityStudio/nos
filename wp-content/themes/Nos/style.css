@@ -436,13 +436,12 @@ textarea {
   display: -ms-flexbox;
   display: flex; }
   .single-cars .advert-main .active {
-    max-width: 700px;
     height: auto; }
     .single-cars .advert-main .active img {
       width: 700px;
+      min-width: 700px;
       height: 400px; }
   .single-cars .advert-main .car-gallery {
-    max-width: 700px;
     padding: 0;
     display: -webkit-box;
     display: -moz-box;
@@ -513,13 +512,18 @@ textarea {
     -moz-flex-direction: column;
     flex-direction: column;
     -ms-flex-direction: column;
-    width: calc(100vw - 700px);
+    width: calc(100vw - 720px);
     margin: 0; }
-    .single-cars .advert-main .car-specifications li {
-      padding: 10px;
-      list-style: none; }
-      .single-cars .advert-main .car-specifications li:nth-of-type(2n) {
-        background-color: #eee; }
+    .single-cars .advert-main .car-specifications dt {
+      float: left;
+      clear: left;
+      width: 100px;
+      text-align: left;
+      font-weight: bold;
+      color: green; }
+    .single-cars .advert-main .car-specifications dd {
+      margin: 0 0 0 150px;
+      padding: 0 0 0.55em 0; }
     .single-cars .advert-main .car-specifications .vehicle-contact {
       margin-top: 20px;
       display: -webkit-box;

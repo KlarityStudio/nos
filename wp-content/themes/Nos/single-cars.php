@@ -28,13 +28,13 @@
             </ul>
           </div>
         </div>
-        <ul class="car-specifications">
+        <div class="car-specifications">
           <?php get_template_part( 'includes/modules/module', 'carSpecifications' ); ?>
           <div class="vehicle-contact">
             <a href="mailto:miles@klarity.co.za?subject=Can I please get some more info about the <?php the_title();?>">Enquire about this Car</a>
             <a href="tel:0218987677">Give Us a Call</a>
           </div>
-        </ul>
+        </div>
       </div>
       <div class="features-wrapper">
         <div class="interior-features feature-container">
@@ -77,5 +77,8 @@
   </section>
   <section id="related-vehicles">
     <?php related_cars(); ?>
+  </section>
+  <section id="enquiry-form ">
+    <?php get_template_part('includes/modules/module','enquiryForm'); ?>
   </section>
 <?php get_footer(); ?>

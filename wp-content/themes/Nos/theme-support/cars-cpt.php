@@ -112,7 +112,7 @@ function car_meta_callback( $post ){
 				<label for="price" class="meta-label">Price:</label>
 			</div>
 			<div class="meta-td">
-				<input type="text" name="price" id="price" value="<?php  if ( ! empty( $car_stored_meta['price'] ) ) echo esc_attr( $car_stored_meta['price'][0] ); ?>"/>
+				<input type="text" name="price" id="price" value="<?php  if ( ! empty( $car_stored_meta['price'] ) ) echo number_format($car_stored_meta['price'][0] ); ?>"/>
 			</div>
 		</div>
 		<div class="meta-row mileage">
