@@ -1,7 +1,7 @@
 .single-cars{
   .advert-main{
     @include display(flex);
-
+    @include justify-content(space-between);
     .active{
       height: auto;
       img{
@@ -11,7 +11,7 @@
       }
     }
     .car-gallery{
-
+      max-width: 700px;
       padding: 0;
       @include display(flex);
       @include justify-content(space-between);
@@ -21,13 +21,16 @@
         list-style: none;
         padding: 1%;
         @include order(2);
+        max-width: 220px;
         img{
           width: 100%;
           max-height: 120px;
         }
         &.active{
           width: 100%;
+          max-width: 700px;
           @include order(1);
+          padding: 1% 0;
           img{
             max-width: 700px;
             width: initial;
@@ -40,7 +43,8 @@
       height: auto;
       @include display(flex);
       @include flex-direction(column);
-      width: calc(100vw - 720px);
+      width: 100%;
+      max-width: 350px;
       margin: 0;
 
       dt {

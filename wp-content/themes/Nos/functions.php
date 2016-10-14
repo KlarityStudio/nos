@@ -138,7 +138,7 @@ function nos_excerptEllipses_removeal($more) {
 }
 add_filter('excerpt_more','nos_excerptEllipses_removeal');
 
-function related_cars(){
+function related_cars($post_type){
 	global $post;
   $current_post_type = get_post_type( $post );
 
@@ -147,7 +147,7 @@ function related_cars(){
     'posts_per_page'    => 4,
     'order'             => 'DEC',
     'orderby'           => 'rand',
-    'post_type'         => 'cars',
+    'post_type'         => $post_type,
     'post__not_in'      => array( $post->ID, )
 
   );
@@ -170,10 +170,17 @@ function related_cars(){
 	    	<li>
 	    		<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>" rel="bookmark">
 	      		<div class="advert-image" style="background-image: url(<?php echo $thumb[0]; ?>)"></div>
-	      		<h2 class="entry-title"><?php the_title() ?></h2>
-						<p><span>R </span><?php $price = get_post_meta( $post->ID,'price', true); $formattedNum = number_format($price); echo $formattedNum; ?></p>
-	     		</a>
-					<a href="<?php the_permalink(); ?>">View Vehicle</a>
+						<div class="advert-info">
+							<h2 class="entry-title"><?php the_title() ?></h2>
+							<p><span>R </span><?php
+								if ($post_type === 'cars') {
+									$price = get_post_meta( $post->ID,'price', true); $formattedNum = number_format($price); echo $formattedNum;
+								}elseif ($post_type === 'wpcm_vehicle') {
+										$price = get_post_meta( $post->ID,'wpcm_price', true); $formattedNum = number_format($price); echo $formattedNum;
+								}?></p>
+						</a>
+						<a href="<?php the_permalink(); ?>">View Vehicle</a>
+					</div>
 	    	</li>
 				<?php
 	 		endwhile;

@@ -76,7 +76,7 @@
     </div>
   </section>
   <section id="related-vehicles">
-    <?php related_cars(); ?>
+    <?php related_cars('cars'); ?>
   </section>
   <section id="enquiry-form ">
     <?php get_template_part('includes/modules/module','enquiryForm'); ?>

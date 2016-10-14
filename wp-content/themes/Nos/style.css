@@ -434,7 +434,16 @@ textarea {
   display: -webkit-flex;
   display: -moz-flex;
   display: -ms-flexbox;
-  display: flex; }
+  display: flex;
+  -webkit-box-pack: justify;
+  -moz-box-pack: justify;
+  box-pack: justify;
+  -webkit-justify-content: space-between;
+  -moz-justify-content: space-between;
+  -ms-justify-content: space-between;
+  -o-justify-content: space-between;
+  justify-content: space-between;
+  -ms-flex-pack: justify; }
   .single-cars .advert-main .active {
     height: auto; }
     .single-cars .advert-main .active img {
@@ -442,6 +451,7 @@ textarea {
       min-width: 700px;
       height: 400px; }
   .single-cars .advert-main .car-gallery {
+    max-width: 700px;
     padding: 0;
     display: -webkit-box;
     display: -moz-box;
@@ -476,19 +486,22 @@ textarea {
       -webkit-order: 2;
       -moz-order: 2;
       order: 2;
-      -ms-flex-order: 2; }
+      -ms-flex-order: 2;
+      max-width: 220px; }
       .single-cars .advert-main .car-gallery li img {
         width: 100%;
         max-height: 120px; }
       .single-cars .advert-main .car-gallery li.active {
         width: 100%;
+        max-width: 700px;
         -webkit-box-ordinal-group: 1;
         -moz-box-ordinal-group: 1;
         box-ordinal-group: 1;
         -webkit-order: 1;
         -moz-order: 1;
         order: 1;
-        -ms-flex-order: 1; }
+        -ms-flex-order: 1;
+        padding: 1% 0; }
         .single-cars .advert-main .car-gallery li.active img {
           max-width: 700px;
           width: initial;
@@ -512,7 +525,8 @@ textarea {
     -moz-flex-direction: column;
     flex-direction: column;
     -ms-flex-direction: column;
-    width: calc(100vw - 720px);
+    width: 100%;
+    max-width: 350px;
     margin: 0; }
     .single-cars .advert-main .car-specifications dt {
       float: left;
@@ -610,9 +624,9 @@ textarea {
       .single-cars .features-wrapper .interior-features > ul li:nth-of-type(2n), .single-cars .features-wrapper .exterior-features > ul li:nth-of-type(2n) {
         background-color: #eee; }
 
-#related-vehicles {
+section #related {
   text-align: center; }
-  #related-vehicles ul {
+  section #related ul {
     display: -webkit-box;
     display: -moz-box;
     display: box;
@@ -630,13 +644,16 @@ textarea {
     justify-content: space-between;
     -ms-flex-pack: justify;
     padding: 0; }
-    #related-vehicles ul li {
+    section #related ul li {
       width: 25%;
       list-style: none;
       padding: 10px; }
-      #related-vehicles ul li:hover {
+      section #related ul li:hover .advert-info {
         background-color: #eee; }
-      #related-vehicles ul li .advert-image {
-        height: 200px;
+      section #related ul li .advert-image {
+        height: 150px;
         background-size: cover;
         background-position: center center; }
+      section #related ul li .advert-info h2 {
+        margin-top: 0;
+        padding-top: 20px; }

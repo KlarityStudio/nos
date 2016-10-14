@@ -7,4 +7,9 @@
     endwhile;
   }?>
 </section>
+<section>
+  <div class="related-cars">
+    <?php related_cars('wpcm_vehicle'); ?>
+  </div>
+</section>
 <?php get_footer(); ?>
