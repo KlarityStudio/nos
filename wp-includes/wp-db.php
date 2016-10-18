@@ -638,7 +638,7 @@ class wpdb {
 		if ( function_exists( 'mysqli_connect' ) ) {
 			if ( defined( 'WP_USE_EXT_MYSQL' ) ) {
 				$this->use_mysqli = ! WP_USE_EXT_MYSQL;
-			} elseif ( version_compare( phpversion(), '5.5', '>=' ) || ! function_exists( 'mysql_connect' ) ) {
+			} elseif ( version_compare( phpversion(), '5.5', '>=' ) || ! function_exists( 'mysqli_connect' ) ) {
 				$this->use_mysqli = true;
 			} elseif ( false !== strpos( $GLOBALS['wp_version'], '-' ) ) {
 				$this->use_mysqli = true;
@@ -767,7 +767,7 @@ class wpdb {
 	 *
 	 * @since 3.1.0
 	 *
-	 * @param resource $dbh     The resource given by mysql_connect
+	 * @param resource $dbh     The resource given by mysqli_connect
 	 * @param string   $charset Optional. The character set. Default null.
 	 * @param string   $collate Optional. The collation. Default null.
 	 */
@@ -1467,7 +1467,7 @@ class wpdb {
 			$this->dbh = mysqli_init();
 
 			// mysqli_real_connect doesn't support the host param including a port or socket
-			// like mysql_connect does. This duplicates how mysql_connect detects a port and/or socket file.
+			// like mysqli_connect does. This duplicates how mysqli_connect detects a port and/or socket file.
 			$port = null;
 			$socket = null;
 			$host = $this->dbhost;
@@ -1506,7 +1506,7 @@ class wpdb {
 					$attempt_fallback = false;
 				} elseif ( defined( 'WP_USE_EXT_MYSQL' ) && ! WP_USE_EXT_MYSQL ) {
 					$attempt_fallback = false;
-				} elseif ( ! function_exists( 'mysql_connect' ) ) {
+				} elseif ( ! function_exists( 'mysqli_connect' ) ) {
 					$attempt_fallback = false;
 				}
 
@@ -1517,9 +1517,9 @@ class wpdb {
 			}
 		} else {
 			if ( WP_DEBUG ) {
-				$this->dbh = mysql_connect( $this->dbhost, $this->dbuser, $this->dbpassword, $new_link, $client_flags );
+				$this->dbh = mysqli_connect( $this->dbhost, $this->dbuser, $this->dbpassword, $new_link, $client_flags );
 			} else {
-				$this->dbh = @mysql_connect( $this->dbhost, $this->dbuser, $this->dbpassword, $new_link, $client_flags );
+				$this->dbh = @mysqli_connect( $this->dbhost, $this->dbuser, $this->dbpassword, $new_link, $client_flags );
 			}
 		}
 
