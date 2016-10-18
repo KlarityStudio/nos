@@ -3262,4 +3262,5 @@ class wpdb {
 		}
 		return preg_replace( '/[^0-9.].*/', '', $server_info );
 	}
+	
 }
