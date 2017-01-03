@@ -14,6 +14,12 @@ get_header();
 							get_template_part( 'includes/pages/page', 'home' );
 						}
 					endwhile;
+					if(is_home()){
+						get_template_part('includes/pages/page', 'blog')
+					}
+					if( is_archive() ){
+						get_template_part('includes/pages/page', 'arhive');
+					}
 				}
 			?>
 		</div><!-- .container -->

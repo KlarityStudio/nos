@@ -29,13 +29,14 @@ if( $cars->have_posts()) : ?>
       $featured_image = nos_get_attachment();?>
       <li>
         <div class="advert-lockup">
-          <a href="<?php echo the_permalink(); ?>"><div class="advert-image" style="background-image:url(<?php echo $featured_image; ?>);"></div></a>
+          
+          <?php the_post_thumbnail('small') ?></img>
           <div class="advert-details">
             <h2><a href="<?php echo the_permalink(); ?>"><?php the_title(); ?></h2></a>
               <div class="minor-specifications">
                 <ul>
                   <li>
-                    <div class="">R<?php $price = get_post_meta( $post->ID,'price', true); $formattedNum = number_format($price); echo $formattedNum; ?></div>
+                    <div class="">R<?php $price = get_post_meta( $post->ID,'price', true); $formatted_Num = number_format($price); echo $formatted_Num; ?></div>
                   </li>
                   <li>
                     <div class="">Year:<?php echo get_post_meta( $post->ID,'year', true); ?></div>

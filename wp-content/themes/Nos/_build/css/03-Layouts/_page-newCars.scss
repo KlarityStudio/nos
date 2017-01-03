@@ -17,12 +17,11 @@
           background-color: #eee;
         }
         .advert-lockup{
-          .advert-image{
-            height: 150px;
-            background:{
-              size: cover;
-              position: center;
-            }
+          width: 100%;
+          max-width: 262px;
+          img{
+            max-width: inherit;
+            height: auto
           }
           .advert-details{
             text-align: center;
