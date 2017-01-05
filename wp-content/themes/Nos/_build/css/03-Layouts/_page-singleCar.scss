@@ -1,0 +1,11 @@
+.single-cars{
+    .advert-main{
+        @include outer-container(1060px);
+        .advert-images{
+            @include span-columns(8);
+        }
+        .car-specifications{
+            @include span-columns(4);
+        }
+    }
+}

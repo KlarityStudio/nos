@@ -1,0 +1,33 @@
+section{
+  #related{
+    text-align: center;
+    ul{
+      @include display(flex);
+      @include justify-content(space-between);
+      padding: 0;
+      li{
+        width: 25%;
+        list-style: none;
+        padding: 10px;
+        &:hover{
+          .advert-info{
+            background-color: #eee;
+          }
+        }
+        .advert-image{
+          height: 150px;
+          background:{
+            size: cover;
+            position: center center;
+          }
+        }
+        .advert-info{
+          h2{
+            margin-top: 0;
+            padding-top: 20px;
+          };
+        }
+      }
+    }
+  }
+}

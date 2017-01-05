@@ -1,0 +1,53 @@
+.page-template-page-mainNewCars{
+  section{
+    h1{
+
+    }
+    ul{
+      @include display(flex);
+      @include justify-content(space-between);
+      @include flex-wrap(wrap);
+      padding: 0;
+      li{
+        width: calc(100% / 5 - 10px);
+        height: 100%;
+        list-style: none;
+        margin: 0 5px;
+        &:hover{
+          background-color: #eee;
+        }
+        .advert-lockup{
+          width: 100%;
+          max-width: 262px;
+          img{
+            max-width: inherit;
+            height: auto
+          }
+          .advert-details{
+            text-align: center;
+            padding: 10px;
+            h2{
+              text-align: center;
+              padding: 10px 0;
+              margin: 0;
+            }
+            p{
+              text-align: left;
+              margin-top: 5px;
+            }
+          }
+        }
+      }
+    }
+    .minor-specifications{
+      ul{
+        padding: 0;
+        text-align: left;
+        li{
+          width: 60%;
+          padding: 0;
+        }
+      }
+    }
+  }
+}
