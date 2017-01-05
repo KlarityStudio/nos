@@ -16,71 +16,77 @@ class GFFormsModel {
 	/**
 	 * Stores the values containing and uploaded files for later access
 	 *
+	 * @since  Unknwon
 	 * @access public
-	 * @static
 	 *
 	 * @var array Defaults to an empty array.
 	 */
 	public static $uploaded_files = array();
 	/**
-	 * Stores unique form IDs found
+	 * Stores unique form IDs found.
 	 *
+	 * @since  Unknown
 	 * @access public
-	 * @static
 	 *
-	 * @var array Defaults to an empty array
+	 * @var array Defaults to an empty array.
 	 */
 	public static $unique_ids = array();
 
 	/**
-	 * Stores confirmations found
+	 * Stores confirmations found.
 	 *
+	 * @since  Unknown
 	 * @access private
-	 * @static
 	 *
-	 * @var array Defaults to an empty array
+	 * @var array Defaults to an empty array.
 	 */
 	private static $_confirmations = array();
 
 	/**
 	 * An in-memory cache for the form meta for the current blog.
-	 *  Use "{Blog ID}_{Form ID}" as the key.
-	 *  Example: $_current_forms['1_2']
 	 *
-	 * @access private
-	 * @static
+	 *  Use "{Blog ID}_{Form ID}" as the key.
+	 *
+	 * @since   Unknown
+	 * @access  private
+	 * @example $_current_forms['1_2']
 	 *
 	 * @var array $_current_forms
 	 */
 	private static $_current_forms = array();
 
 	/**
-	 * The entry data for the current site
-	 *
+	 * The entry data for the current site.
+	 *.
 	 * @access private
-	 * @static
 	 *
-	 * @var null Defaults to null
+	 * @var null Defaults to null.
 	 */
 	private static $_current_lead = null;
 
 	/**
-	 * Flushes the data stored within GFFormsModel::$_current_forms
+	 * Flushes the data stored within GFFormsModel::$_current_forms.
 	 *
+	 * @since  Unknown
 	 * @access public
-	 * @static
-	 * @see GFFormsModel::$_current_forms
+	 *
+	 * @uses GFFormsModel::$_current_forms
+	 *
+	 * @return void
 	 */
 	public static function flush_current_forms() {
 		self::$_current_forms = null;
 	}
 
 	/**
-	 * Flushes the data stored within GFFormsModel::$_current_lead
+	 * Flushes the data stored within GFFormsModel::$_current_lead.
 	 *
+	 * @since  Unknown
 	 * @access public
-	 * @static
-	 * @see GFFormsModel::$_current_lead
+	 *
+	 * @uses GFFormsModel::$_current_lead
+	 *
+	 * @return void
 	 */
 	public static function flush_current_lead() {
 		self::$_current_lead = null;
@@ -89,9 +95,12 @@ class GFFormsModel {
 	/**
 	 * Flushes the data stored within GFFormsModel::$_confirmations
 	 *
+	 * @since  Unknown
 	 * @access public
-	 * @static
-	 * @see GFFormsModel::$_confirmations
+	 *
+	 * @uses GFFormsModel::$_confirmations
+	 *
+	 * @return void
 	 */
 	public static function flush_confirmations() {
 		self::$_confirmations = null;
@@ -100,8 +109,8 @@ class GFFormsModel {
 	/**
 	 * Gets the form table name, including the site's database prefix.
 	 *
+	 * @since  Unknown
 	 * @access public
-	 * @static
 	 * @global $wpdb
 	 *
 	 * @return string The form table name.
@@ -113,13 +122,13 @@ class GFFormsModel {
 	}
 
 	/**
-	 * Gets the form meta table, including the site's database prefix
+	 * Gets the form meta table, including the site's database prefix.
 	 *
+	 * @since  Unknown
 	 * @access public
-	 * @static
 	 * @global $wpdb
 	 *
-	 * @return string The form meta table
+	 * @return string The form meta table.
 	 */
 	public static function get_meta_table_name() {
 		global $wpdb;
@@ -128,13 +137,13 @@ class GFFormsModel {
 	}
 
 	/**
-	 * Gets the form view table name, including the site's database prefix
+	 * Gets the form view table name, including the site's database prefix.
 	 *
+	 * @since  Unknown
 	 * @access public
-	 * @static
 	 * @global $wpdb
 	 *
-	 * @return string The form view table name
+	 * @return string The form view table name.
 	 */
 	public static function get_form_view_table_name() {
 		global $wpdb;
@@ -143,13 +152,13 @@ class GFFormsModel {
 	}
 
 	/**
-	 * Gets the lead (entries) table name, including the site's database prefix
+	 * Gets the lead (entries) table name, including the site's database prefix.
 	 *
+	 * @since  Unknown
 	 * @access public
-	 * @static
 	 * @global $wpdb
 	 *
-	 * @return string The lead (entry) table name
+	 * @return string The lead (entry) table name.
 	 */
 	public static function get_lead_table_name() {
 		global $wpdb;
@@ -158,13 +167,13 @@ class GFFormsModel {
 	}
 
 	/**
-	 * Gets the lead (entry) meta table name, including the site's database prefix
+	 * Gets the lead (entry) meta table name, including the site's database prefix.
 	 *
+	 * @since  Unknown
 	 * @access public
-	 * @static
 	 * @global $wpdb
 	 *
-	 * @return string The lead (entry) meta table name
+	 * @return string The lead (entry) meta table name.
 	 */
 	public static function get_lead_meta_table_name() {
 		global $wpdb;
@@ -173,13 +182,13 @@ class GFFormsModel {
 	}
 
 	/**
-	 * Gets the lead (entry) notes table name, including the site's database prefix
+	 * Gets the lead (entry) notes table name, including the site's database prefix.
 	 *
+	 * @since  Unknown
 	 * @access public
-	 * @static
 	 * @global $wpdb
 	 *
-	 * @return string The lead (entry) notes table name
+	 * @return string The lead (entry) notes table name.
 	 */
 	public static function get_lead_notes_table_name() {
 		global $wpdb;
@@ -188,13 +197,13 @@ class GFFormsModel {
 	}
 
 	/**
-	 * Gets the lead (entry) details table name, including the site's database prefix
+	 * Gets the lead (entry) details table name, including the site's database prefix.
 	 *
+	 * @since  Unknown
 	 * @access public
-	 * @static
 	 * @global $wpdb
 	 *
-	 * @return string The lead (entry) details table name
+	 * @return string The lead (entry) details table name.
 	 */
 	public static function get_lead_details_table_name() {
 		global $wpdb;
@@ -203,13 +212,13 @@ class GFFormsModel {
 	}
 
 	/**
-	 * Gets the lead (entry) details long table name, including the site's database prefix
+	 * Gets the lead (entry) details long table name, including the site's database prefix.
 	 *
+	 * @since  Unknown
 	 * @access public
-	 * @static
 	 * @global $wpdb
 	 *
-	 * @return string The lead (entry) details long table name
+	 * @return string The lead (entry) details long table name.
 	 */
 	public static function get_lead_details_long_table_name() {
 		global $wpdb;
@@ -218,13 +227,13 @@ class GFFormsModel {
 	}
 
 	/**
-	 * Gets the lead (entry) view table name, including the site's database prefix
+	 * Gets the lead (entry) view table name, including the site's database prefix.
 	 *
+	 * @since  Unknown
 	 * @access public
-	 * @static
 	 * @global $wpdb
 	 *
-	 * @return string The lead (entry) view table name
+	 * @return string The lead (entry) view table name.
 	 */
 	public static function get_lead_view_name() {
 		global $wpdb;
@@ -233,13 +242,13 @@ class GFFormsModel {
 	}
 
 	/**
-	 * Gets the incomplete submissions table name, including the site's database prefix
+	 * Gets the incomplete submissions table name, including the site's database prefix.
 	 *
+	 * @since  Unknown
 	 * @access public
-	 * @static
 	 * @global $wpdb
 	 *
-	 * @return string The incomplete submissions table name
+	 * @return string he incomplete submissions table name.
 	 */
 	public static function get_incomplete_submissions_table_name() {
 		global $wpdb;
@@ -248,15 +257,16 @@ class GFFormsModel {
 	}
 
 	/**
-	 * Gets all forms
+	 * Gets all forms.
 	 *
+	 * @since  Unknown
 	 * @access public
-	 * @static
 	 * @global $wpdb
-	 * @see GFFormsModel::get_form_table_name
-	 * @see GFFormsModel::get_form_db_columns
-	 * @see GFFormsModel::get_entry_count_per_form
-	 * @see GFFormsModel::get_view_count_per_form
+	 *
+	 * @uses GFFormsModel::get_form_table_name()
+	 * @uses GFFormsModel::get_form_db_columns()
+	 * @uses GFFormsModel::get_entry_count_per_form()
+	 * @uses GFFormsModel::get_view_count_per_form()
 	 *
 	 * @param bool   $is_active   Optional. Defines if inactive forms should be displayed. Defaults to null.
 	 * @param string $sort_column Optional. The column to be used for sorting the forms. Defaults to 'title'.
@@ -325,12 +335,13 @@ class GFFormsModel {
 	 *
 	 * First attempts to read from cache. If unavailable, gets the entry count, caches it, and returns it.
 	 *
+	 * @since  Unknown
 	 * @access public
-	 * @static
 	 * @global $wpdb
-	 * @see GFFormsModel::get_lead_table_name
-	 * @see GFCache::get
-	 * @see GFCache::set
+	 *
+	 * @uses GFFormsModel::get_lead_table_name()
+	 * @uses GFCache::get()
+	 * @uses GFCache::set()
 	 *
 	 * @return array $entry_count Array of forms, containing the form ID and the entry count
 	 */
@@ -355,12 +366,13 @@ class GFFormsModel {
 	 *
 	 * Checks the cache first.  If not there, gets the count from the database, stores it in the cache, and returns it.
 	 *
+	 * @since  Unknown
 	 * @access public
-	 * @static
 	 * @global $wpdb
-	 * @see GFFormsModel::get_form_view_table_name
-	 * @see GFCache::get
-	 * @see GFCache::set
+	 *
+	 * @uses GFFormsModel::get_form_view_table_name()
+	 * @uses GFCache::get()
+	 * @uses GFCache::set()
 	 *
 	 * @return array $view_count Array of forms, containing the form ID and the view count
 	 */
@@ -382,8 +394,8 @@ class GFFormsModel {
 	/**
 	 * Returns the form database columns.
 	 *
+	 * @since  Unknown
 	 * @access public
-	 * @static
 	 *
 	 * @return array The column IDs
 	 */
@@ -408,16 +420,17 @@ class GFFormsModel {
 	}
 
 	/**
-	 * Gets the payment totals for a particular form ID
+	 * Gets the payment totals for a particular form ID.
 	 *
+	 * @since  Unknown
 	 * @access public
-	 * @static
 	 * @global $wpdb
-	 * @see GFFormsModel::get_lead_table_name
 	 *
-	 * @param int $form_id The form ID to get payment totals for
+	 * @uses GFFormsModel::get_lead_table_name()
 	 *
-	 * @return array $totals The payment totals found
+	 * @param int $form_id The form ID to get payment totals for.
+	 *
+	 * @return array $totals The payment totals found.
 	 */
 	public static function get_form_payment_totals( $form_id ) {
 		global $wpdb;
@@ -449,17 +462,18 @@ class GFFormsModel {
 	}
 
 	/**
-	 * Gets the total, unread, starred, spam, and trashed entry counts
+	 * Gets the total, unread, starred, spam, and trashed entry counts.
 	 *
+	 * @since  Unknown
 	 * @access public
-	 * @static
 	 * @global $wpdb
-	 * @see GFFormsModel::get_lead_table_name
-	 * @see GFFormsModel::get_lead_details_table_name
 	 *
-	 * @param int $form_id The ID of the form to check
+	 * @uses GFFormsModel::get_lead_table_name()
+	 * @uses GFFormsModel::get_lead_details_table_name()
 	 *
-	 * @return array $results[0] The form counts
+	 * @param int $form_id The ID of the form to check.
+	 *
+	 * @return array $results[0] The form counts.
 	 */
 	public static function get_form_counts( $form_id ) {
 		global $wpdb;
@@ -483,13 +497,14 @@ class GFFormsModel {
 	}
 
 	/**
-	 * Gets the form summary for all forms
+	 * Gets the form summary for all forms.
 	 *
+	 * @since  Unknown
 	 * @access public
-	 * @static
 	 * @global $wpdb
-	 * @see GFFormsModel::get_form_table_name
-	 * @see GFFormsModel::get_lead_table_name
+	 *
+	 * @uses GFFormsModel::get_form_table_name()
+	 * @uses GFFormsModel::get_lead_table_name()
 	 *
 	 * @return array $forms Contains the form summary for all forms.
 	 */
@@ -548,12 +563,13 @@ class GFFormsModel {
 	/**
 	 * Gets the total, active, inactive, and trashed form counts.
 	 *
+	 * @since  Unknown
 	 * @access public
-	 * @static
 	 * @global $wpdb
-	 * @see GFFormsModel::get_form_table_name
 	 *
-	 * @return array The form counts
+	 * @uses GFFormsModel::get_form_table_name()
+	 *
+	 * @return array The form counts.
 	 */
 	public static function get_form_count() {
 		global $wpdb;
@@ -577,13 +593,14 @@ class GFFormsModel {
 	}
 
 	/**
-	 * Gets the form ID based on the form title
+	 * Gets the form ID based on the form title.
 	 *
+	 * @since  Unknown
 	 * @access public
-	 * @static
-	 * @see GFFormsModel::get_forms
 	 *
-	 * @param string $form_title The form title to search for
+	 * @uses GFFormsModel::get_forms()
+	 *
+	 * @param string $form_title The form title to search for.
 	 *
 	 * @return int The form ID. Returns 0 if not found.
 	 */
@@ -600,12 +617,13 @@ class GFFormsModel {
 	}
 
 	/**
-	 * Gets a form based on the form ID
+	 * Gets a form based on the form ID.
 	 *
+	 * @since  Unknown
 	 * @access public
-	 * @static
 	 * @global $wpdb
-	 * @see GFFormsModel::get_form_table_name
+	 *
+	 * @uses GFFormsModel::get_form_table_name()
 	 *
 	 * @param int  $form_id     The ID of the form to get.
 	 * @param bool $allow_trash Optional. Set to true to allow trashed results. Defaults to false.
@@ -622,14 +640,14 @@ class GFFormsModel {
 	}
 
 	/**
-	 * Converts a serialized string or JSON for access in PHP
+	 * Converts a serialized string or JSON for access in PHP.
 	 *
+	 * @since  Unknown
 	 * @access public
-	 * @static
 	 *
-	 * @param string $string The string to convert
+	 * @param string $string The string to convert.
 	 *
-	 * @return object|array The object that the string was converted to
+	 * @return object|array The object that the string was converted to.
 	 */
 	public static function unserialize( $string ) {
 
@@ -643,20 +661,21 @@ class GFFormsModel {
 	}
 
 	/**
-	 * Gets the form meta based on the form ID
+	 * Gets the form meta based on the form ID.
 	 *
+	 * @since  Unknown
 	 * @access public
-	 * @static
 	 * @global $wpdb
-	 * @see GFFormsModel::get_meta_table_name
-	 * @see GFFormsModel::unserialize
-	 * @see GFFormsModel::convert_field_objects
-	 * @see GFFormsModel::load_notifications_from_legacy
-	 * @see GFFormsModel::$_current_forms
 	 *
-	 * @param int $form_id The form ID
+	 * @uses GFFormsModel::get_meta_table_name()
+	 * @uses GFFormsModel::unserialize()
+	 * @uses GFFormsModel::convert_field_objects()
+	 * @uses GFFormsModel::load_notifications_from_legacy()
+	 * @uses GFFormsModel::$_current_forms
 	 *
-	 * @return array|null $form Form object if found. Null if not found
+	 * @param int $form_id The form ID.
+	 *
+	 * @return array|null $form Form object if found. Null if not found.
 	 */
 	public static function get_form_meta( $form_id ) {
 		global $wpdb;
@@ -711,15 +730,16 @@ class GFFormsModel {
 	}
 
 	/**
-	 * Converts all field objects in a form, based on field type
+	 * Converts all field objects in a form, based on field type.
 	 *
+	 * @since  Unknown
 	 * @access public
-	 * @static
-	 * @see GF_Field_CreditCard::maybe_upgrade_inputs
 	 *
-	 * @param array $form The Form object
+	 * @uses GF_Field_CreditCard::maybe_upgrade_inputs()
 	 *
-	 * @return array $form The Form object after the field objects are converted
+	 * @param array $form The Form object.
+	 *
+	 * @return array $form The Form object after the field objects are converted.
 	 */
 	public static function convert_field_objects( $form ) {
 		$page_number = 1;
@@ -745,17 +765,18 @@ class GFFormsModel {
 	}
 
 	/**
-	 * Gets the form meta for multiple forms based on an array for form IDs
+	 * Gets the form meta for multiple forms based on an array for form IDs.
 	 *
+	 * @since  Unknown
 	 * @access public
-	 * @static
 	 * @global $wpdb
-	 * @see GFFormsModel::get_form_table_name
-	 * @see GFFormsModel::get_meta_table_name
-	 * @see GFFormsModel::unserialize
-	 * @see GFFormsModel::convert_field_objects
 	 *
-	 * @param array $ids Array of form IDs
+	 * @uses GFFormsModel::get_form_table_name()
+	 * @uses GFFormsModel::get_meta_table_name()
+	 * @uses GFFormsModel::unserialize()
+	 * @uses GFFormsModel::convert_field_objects()
+	 *
+	 * @param array $ids Array of form IDs.
 	 *
 	 * @return array $results
 	 */
@@ -790,14 +811,14 @@ class GFFormsModel {
 	}
 
 	/**
-	 * Converts current notification structure to legacy
+	 * Converts current notification structure to legacy.
 	 *
+	 * @since  Unknown
 	 * @access private
-	 * @static
 	 *
-	 * @param array $form The Form object
+	 * @param array $form The Form object.
 	 *
-	 * @return array $form The Form object
+	 * @return array $form The Form object.
 	 */
 	private static function load_notifications_to_legacy( $form ) {
 		if ( ! is_array( rgar( $form, 'notifications' ) ) ) {
@@ -834,18 +855,19 @@ class GFFormsModel {
 	}
 
 	/**
-	 * Loads notifications using from the legacy format
+	 * Loads notifications using from the legacy format.
 	 *
+	 * @since  Unknown
 	 * @access private
-	 * @static
-	 * @see GFCommon::has_admin_notification
-	 * @see GFFormsModel::convert_property_to_merge_tag
-	 * @see GFCommon::has_user_notification
-	 * @see GFFormsModel::save_form_notifications
 	 *
-	 * @param array $form The Form object
+	 * @uses GFCommon::has_admin_notification()
+	 * @uses GFFormsModel::convert_property_to_merge_tag()
+	 * @uses GFCommon::has_user_notification()
+	 * @uses GFFormsModel::save_form_notifications()
 	 *
-	 * @return array $form The Form object
+	 * @param array $form The Form object.
+	 *
+	 * @return array $form The Form object.
 	 */
 	private static function load_notifications_from_legacy( $form ) {
 
@@ -907,18 +929,19 @@ class GFFormsModel {
 	}
 
 	/**
-	 * Converts a form property to the merge tag format
+	 * Converts a form property to the merge tag format.
 	 *
+	 * @since  Unknown
 	 * @access private
-	 * @static
-	 * @see GFFormsModel::get_field_merge_tag
 	 *
-	 * @param array  $form            The Form object
-	 * @param array  $array           Array of properties to search through
-	 * @param string $target_property The property to move the value to
-	 * @param string $source_property The property to search for
+	 * @uses GFFormsModel::get_field_merge_tag()
 	 *
-	 * @return array $array The array that was searched through
+	 * @param array  $form            The Form object.
+	 * @param array  $array           Array of properties to search through.
+	 * @param string $target_property The property to move the value to.
+	 * @param string $source_property The property to search for.
+	 *
+	 * @return array $array The array that was searched through.
 	 */
 	private static function convert_property_to_merge_tag( $form, $array, $target_property, $source_property ) {
 		$merge_tag = self::get_field_merge_tag( $form, rgar( $array, $source_property ) );
@@ -931,15 +954,16 @@ class GFFormsModel {
 	}
 
 	/**
-	 * Gets a formatted merge tag for a field
+	 * Gets a formatted merge tag for a field.
 	 *
+	 * @since  Unknown
 	 * @access private
-	 * @static
-	 * @see GFFormsModel::get_field
-	 * @see GFCommon::get_label
 	 *
-	 * @param array $form The Form object
-	 * @param int $field_id The field ID
+	 * @uses GFFormsModel::get_field()
+	 * @uses GFCommon::get_label()
+	 *
+	 * @param array $form     The Form object.
+	 * @param int   $field_id The field ID.
 	 *
 	 * @return string|false The merge tag if found. False if not found.
 	 */
@@ -983,14 +1007,15 @@ class GFFormsModel {
 	}
 
 	/**
-	 * Gets the column info for the entry listing page
+	 * Gets the column info for the entry listing page.
 	 *
+	 * @since  Unknown
 	 * @access public
-	 * @static
-	 * @global
-	 * @see GFFormsModel::get_meta_table_name
+	 * @global $wpdb
 	 *
-	 * @param int $form_id The ID of the form that entries are coming from
+	 * @uses GFFormsModel::get_meta_table_name()
+	 *
+	 * @param int $form_id The ID of the form that entries are coming from.
 	 *
 	 * @return mixed
 	 */
@@ -1365,6 +1390,8 @@ class GFFormsModel {
 		 */
 		do_action( 'gform_post_form_trashed', $form_id );
 
+		self::update_recent_forms( $form_id, true );
+
 		return $success;
 	}
 
@@ -1626,16 +1653,23 @@ class GFFormsModel {
 			return;
 		}
 
-		//Convert from url to physical path
+		$file_path = self::get_phsyical_file_path( $url );
+
+		if ( file_exists( $file_path ) ) {
+			unlink( $file_path );
+		}
+	}
+
+	public static function get_phsyical_file_path( $url ) {
+
+		// convert from url to physical path
 		if ( is_multisite() && get_site_option( 'ms_files_rewriting' ) ) {
 			$file_path = preg_replace( "|^(.*?)/files/gravity_forms/|", BLOGUPLOADDIR . 'gravity_forms/', $url );
 		} else {
 			$file_path = str_replace( WP_CONTENT_URL, WP_CONTENT_DIR, $url );
 		}
 
-		if ( file_exists( $file_path ) ) {
-			unlink( $file_path );
-		}
+		return $file_path;
 	}
 
 	public static function delete_field( $form_id, $field_id ) {
@@ -2671,7 +2705,7 @@ class GFFormsModel {
 	}
 
 	public static function get_parameter_value( $name, $field_values, $field ) {
-		$value = stripslashes( rgget( $name ) );
+		$value = stripslashes_deep( rgget( $name ) );
 		if ( empty( $value ) ) {
 			$value = rgget( $name, $field_values );
 		}
@@ -3073,7 +3107,7 @@ class GFFormsModel {
 		$form_unique_id = self::get_form_unique_id( $form_id );
 		$pathinfo       = pathinfo( $uploaded_filename );
 
-		GFCommon::log_debug( 'Uploaded filename is ' . $uploaded_filename . ' and temporary filename is ' . $form_unique_id . '_' . $input_name . '.' . $pathinfo['extension'] );
+		GFCommon::log_debug( __METHOD__ . '(): Uploaded filename is ' . $uploaded_filename . ' and temporary filename is ' . $form_unique_id . '_' . $input_name . '.' . $pathinfo['extension'] );
 		return array( 'uploaded_filename' => $uploaded_filename, 'temp_filename' => "{$form_unique_id}_{$input_name}.{$pathinfo['extension']}" );
 
 	}
@@ -5815,6 +5849,39 @@ class GFFormsModel {
 
 	public static function is_valid_operator( $operator ) {
 		return in_array( strtolower( $operator ) , array( 'is', 'isnot', '<>', 'not in', 'in', '>', '<', 'contains', 'starts_with', 'ends_with', 'like', '>=', '<=' ) );
+	}
+
+	/**
+	 * Update the recent forms list for the current user when a form is edited or trashed.
+	 *
+	 * @since 2.0.7.14
+	 *
+	 * @param int $form_id The ID of the current form.
+	 * @param bool $trashed Indicates if the form was trashed. Default is false, form was opened for editing.
+	 */
+	public static function update_recent_forms( $form_id, $trashed = false ) {
+		if ( ! get_option( 'gform_enable_toolbar_menu' ) ) {
+			return;
+		}
+
+		$current_user_id = get_current_user_id();
+		$recent_form_ids = get_user_meta( $current_user_id, 'gform_recent_forms', true );
+
+		$i = array_search( $form_id, $recent_form_ids );
+
+		if ( $i !== false ) {
+			unset( $recent_form_ids[ $i ] );
+			$recent_form_ids = array_values( $recent_form_ids );
+		}
+
+		if ( ! $trashed ) {
+			// Add the current form to the top of the list.
+			array_unshift( $recent_form_ids, $form_id );
+
+			$recent_form_ids = array_slice( $recent_form_ids, 0, 10 );
+		}
+
+		update_user_meta( $current_user_id, 'gform_recent_forms', $recent_form_ids );
 	}
 }
 

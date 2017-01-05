@@ -1,5 +1,14 @@
-@import "nos-theme";
+/*--- Wordpress theme description ---*/
+@import "wp-theme";
+
+/*--- Normalize css ---*/
 @import "normalize";
+
+/*--- Bourbon Settings ---*/
 @import "tools";
 @import "bourbon";
 @import "neat/neat";
+
+/*--- Media Queries Plugin and Mixins ---*/
+@import "media-queries";
+@import "mixins";

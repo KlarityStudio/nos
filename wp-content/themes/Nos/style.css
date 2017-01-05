@@ -1,3 +1,4 @@
+/*--- Wordpress theme description ---*/
 /*
 Theme Name: Nos
 Author: Klarity
@@ -8,6 +9,7 @@ Tags: white, light, one-column, two-columns, three-columns, right-sidebar, left-
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 */
+/*--- Normalize css ---*/
 /*! normalize.css v4.1.1 | MIT License | github.com/necolas/normalize.css */
 /**
  * 1. Change the default font family in all browsers (opinionated).
@@ -374,12 +376,21 @@ textarea {
   font: inherit;
   /* 2 */ }
 
+/*--- Bourbon Settings ---*/
+/*--- Bourbon Neat grid settings ----*/
 html {
   box-sizing: border-box; }
 
 *, *::after, *::before {
   box-sizing: inherit; }
 
+/*--- Media Queries Plugin and Mixins ---*/
+/*-----------------  Functions  -----------------*/
+/*-----------------  Buttons  -----------------*/
+/*--- 
+    Theme base settings
+    NOTE: the order of imports is very specific to allow for them to connect to each other
+---*/
 .page-template-page-mainNewCars section ul {
   display: -webkit-box;
   display: -moz-box;

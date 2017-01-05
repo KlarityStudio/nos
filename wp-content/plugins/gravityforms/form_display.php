@@ -450,9 +450,10 @@ class GFFormDisplay {
 	 * Determine if form has any pages.
 	 * 
 	 * @access private
-	 * @static
-	 * @param array $form - The form object
-	 * @return bool - If form object has any pages
+	 *
+	 * @param array $form The form object
+	 *
+	 * @return bool If form object has any pages
 	 */
 	private static function has_pages( $form ) {
 		return GFCommon::has_pages( $form );
@@ -1176,6 +1177,17 @@ class GFFormDisplay {
 
 		$save_button = rgars( $form, 'save/enabled' ) ? self::get_form_button( $form_id, "gform_save_{$form_id}", $form['save']['button'], rgars( $form, 'save/button/text' ), 'gform_save_link', rgars( $form, 'save/button/text' ), 0, "jQuery(\"#gform_save_{$form_id}\").val(1);" ) : '';
 
+		/**
+		 * Filters the save and continue link allowing the tag to be customized
+		 *
+		 * @since 2.0.7.7
+		 *
+		 * @param string $save_button The string containing the save and continue link markup.
+		 * @param array  $form        The Form object associated with the link.
+		 */
+		$save_button = apply_filters( 'gform_savecontinue_link', $save_button, $form );
+		$save_button = apply_filters( "gform_savecontinue_link_{$form_id}", $save_button, $form );
+
 		$footer .= $previous_button . ' ' . $button_input . ' ' . $save_button;
 
 		$tabindex = (int) $tabindex;
@@ -1267,7 +1279,16 @@ class GFFormDisplay {
 	}
 
 	private static function get_honeypot_labels() {
-		return array( 'Name', 'Email', 'Phone', 'Comments' );
+		$honeypot_labels = array( 'Name', 'Email', 'Phone', 'Comments' );
+
+		/**
+		 * Allow the honeypot field labels to be overridden.
+		 *
+		 * @since 2.0.7.16
+		 *
+		 * @param array $honeypot_labels The honeypot field labels.
+		 */
+		return apply_filters( 'gform_honeypot_labels_pre_render', $honeypot_labels );
 	}
 
 	/**
@@ -2639,17 +2660,31 @@ class GFFormDisplay {
 			if ( $is_entry_detail ) {
 				return; //ignore page breaks in the entry detail page
 			} else if ( ! $is_form_editor ) {
-				$save_button = rgars( $form, 'save/enabled' ) ? self::get_form_button( $form['id'], "gform_save_{$form['id']}", $form['save']['button'], rgars( $form, 'save/button/text' ), 'gform_save_link', rgars( $form, 'save/button/text' ), 0, "jQuery(\"#gform_save_{$form['id']}\").val(1);" ) : '';
-
-				$next_button_alt = rgempty( 'imageAlt', $field->nextButton ) ? __( 'Next Page', 'gravityforms' ) : $field->nextButton['imageAlt'];
-				$next_button     = self::get_form_button( $form['id'], "gform_next_button_{$form['id']}_{$field->id}", $field->nextButton, __( 'Next', 'gravityforms' ), 'gform_next_button', $next_button_alt, $field->pageNumber );
-				$next_button     = gf_apply_filters( array( 'gform_next_button', $form['id'] ), $next_button, $form );
 
 				$previous_button_alt = rgempty( 'imageAlt', $field->previousButton ) ? __( 'Previous Page', 'gravityforms' ) : $field->previousButton['imageAlt'];
 				$previous_button = $field->pageNumber == 2 ? '' : self::get_form_button( $form['id'], "gform_previous_button_{$form['id']}_{$field->id}", $field->previousButton, __( 'Previous', 'gravityforms' ), 'gform_previous_button', $previous_button_alt, $field->pageNumber - 2 );
 				if ( ! empty( $previous_button ) ) {
 					$previous_button = gf_apply_filters( array( 'gform_previous_button', $form['id'] ), $previous_button, $form );
 				}
+
+				$next_button_alt = rgempty( 'imageAlt', $field->nextButton ) ? __( 'Next Page', 'gravityforms' ) : $field->nextButton['imageAlt'];
+				$next_button     = self::get_form_button( $form['id'], "gform_next_button_{$form['id']}_{$field->id}", $field->nextButton, __( 'Next', 'gravityforms' ), 'gform_next_button', $next_button_alt, $field->pageNumber );
+				$next_button     = gf_apply_filters( array( 'gform_next_button', $form['id'] ), $next_button, $form );
+
+				$save_button = rgars( $form, 'save/enabled' ) ? self::get_form_button( $form['id'], "gform_save_{$form['id']}", $form['save']['button'], rgars( $form, 'save/button/text' ), 'gform_save_link', rgars( $form, 'save/button/text' ), 0, "jQuery(\"#gform_save_{$form['id']}\").val(1);" ) : '';
+
+				/**
+				 * Filters the save and continue link allowing the tag to be customized
+				 *
+				 * @since 2.0.7.7
+				 *
+				 * @param string $save_button The string containing the save and continue link markup.
+				 * @param array  $form        The Form object associated with the link.
+				 */
+				$save_button = apply_filters( 'gform_savecontinue_link', $save_button, $form );
+				$save_button = apply_filters( "gform_savecontinue_link_{$form['id']}", $save_button, $form );
+
+
 				$style        = self::is_page_active( $form['id'], $field->pageNumber ) ? '' : "style='display:none;'";
 				$custom_class = ! empty( $custom_class ) ? " {$custom_class}" : '';
 				$html         = "</ul>
@@ -3217,11 +3252,13 @@ class GFFormDisplay {
 
 	/**
 	 * Insert review page into form.
-	 * 
+	 *
+	 * @since  Unknown
 	 * @access public
-	 * @static
-	 * @param array $form - The current Form object
-	 * @param array $review_page - The review page
+	 *
+	 * @param array $form        The current Form object
+	 * @param array $review_page The review page
+	 *
 	 * @return array $form
 	 */
 	public static function insert_review_page( $form, $review_page ) {

@@ -10,7 +10,7 @@
 	require get_template_directory() . '/includes/admin/theme-functions.php';
 	require get_template_directory() . '/includes/admin/enqueue.php';
 	require get_template_directory() . '/includes/admin/theme-support.php';
-	require get_template_directory() . '/includes/admin/custom-post-types.php';
+	require get_template_directory() . '/includes/admin/cpt-new-cars.php';
 	require get_template_directory() . '/includes/admin/sidebar.php';
 
 /*------------     Enqueing of Styles and JS     -----------*/
