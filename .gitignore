@@ -10,6 +10,7 @@ Thumbs.db
 
 # wordpress specific
 wp-config.php
+wp-admin
 wp-content/blogs.dir/
 wp-content/upgrade/*
 wp-content/uploads/*
@@ -68,3 +69,4 @@ last-mod
 # site specific
 /wc-logs/
 wp-content/themes/nos/config.codekit
+.htaccess
