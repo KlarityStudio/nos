@@ -16,7 +16,7 @@ class MWP_Action_ClearTransient extends MWP_Action_Abstract
             'deletedTransients'        => 0,
             'deletedTransientTimeouts' => 0,
         );
-
+        
         if (is_array($params['transient'])) {
             foreach ($params['transient'] as $transient) {
                 $cleared = $this->clearTransients($transient['name'], $transient['suffix'], $transient['timeout'], $transient['mask'], $transient['limit']);

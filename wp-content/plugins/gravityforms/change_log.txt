@@ -1,3 +1,90 @@
+
+*******************************************************
+
+*******************  STRING FREEZE  *******************
+
+Please do not change or add any translatable strings
+*******************************************************
+
+------------------------------------------------------------------------------------------------------------------
+Version 2.0.7.16
+    - Added the gform_honeypot_labels_pre_render filter.
+
+------------------------------------------------------------------------------------------------------------------
+Version 2.0.7.15
+    - Added GFFormsModel::get_phsyical_file_path() method; refactored from code in the GFFormsModel::delete_physical_file() method.
+
+------------------------------------------------------------------------------------------------------------------
+Version 2.0.7.14
+    - Updated the registration of some JavaScript files to use the minified version by default.
+    - Fixed an issue with the recent forms list not updating when forms are trashed.
+    - Fixed a PHP warning on some systems where the cron task is unable to to create files.
+    - Updated the default css and ready class css for better horizontal field justification.
+    - AF: Added gform_fieldmap_add_row Javascript action when adding a new row to a dynamic field map.
+    - AF: Updated jQuery Repeater plugin to support input fields for value.
+
+------------------------------------------------------------------------------------------------------------------
+Version 2.0.7.13
+    - Fixed an issue with the advanced field buttons.
+
+------------------------------------------------------------------------------------------------------------------
+Version 2.0.7.12
+	- Added gform_rfc_url_validation hook to control whether or not URL validation conforms with RFC standard. Defaults to true.
+	- Added gform_is_valid_url hook to allow for custom URL validation.
+	- AF: Fixed fatal error with the add-on specific version of the gform_addon_field_map_choices filter.
+
+------------------------------------------------------------------------------------------------------------------
+Version 2.0.7.11
+    - Updated how the tooltip styles and scripts are included.
+    - AF: Added the gform_addon_field_map_choices filter allowing the choices in the field map drop down to be overridden.
+
+------------------------------------------------------------------------------------------------------------------
+Version 2.0.7.10
+    - Fixed an issue with the confirmation settings for users without the unfiltered_html capability where merge tags used as attributes get mangled instead of removed.
+
+------------------------------------------------------------------------------------------------------------------
+Version 2.0.7.9
+    - Fixed PHP warning if a query string parameter uses array notation.
+
+------------------------------------------------------------------------------------------------------------------
+Version 2.0.7.8
+	- Updated GF_ShowEditTitle() to automatically give the edit title input focus.
+
+------------------------------------------------------------------------------------------------------------------
+Version 2.0.7.7
+	- Added the gform_savecontinue_link filter for customizing the save and continue links.
+	- Added GFFormDetail::get_field_groups() method.
+
+------------------------------------------------------------------------------------------------------------------
+Version 2.0.7.6
+    - Added the gform_entry_list_columns filter for overriding the columns to be displayed on the entry list page.
+
+------------------------------------------------------------------------------------------------------------------
+Version 2.0.7.5
+	- Fixed tabindex issue when save and continue functionality is activated.
+
+------------------------------------------------------------------------------------------------------------------
+Version 2.0.7.4
+    - Fixed an issue with the Email field validation for forms created in 1.8 or older when the confirmation input value includes trailing spaces.
+    - Fixed an issue with the Web API returning 404 errors under certain circumstances for example saving permalinks.
+    - Updated the input container for the textarea field to include the ginput_container_textarea class.
+    - AF: Added GFAddOn::is_simple_condition_met() for evaluating the rule configured for the field created using the simple_condition() helper.
+
+------------------------------------------------------------------------------------------------------------------
+Version 2.0.7.3
+    - Updated notification routing conditional logic JS to use the get_routing_field_types() method for consistency
+
+------------------------------------------------------------------------------------------------------------------
+Version 2.0.7.2
+    - Added logging of sanitize_file_name filter, in some cases it can cause an empty .csv file download.
+
+------------------------------------------------------------------------------------------------------------------
+Version 2.0.7.1
+    - Added the gform_reset_pre_conditional_logic_field_action filter which can be used to prevent the field being reset to its default value when hidden. See https://www.gravityhelp.com/documentation/article/gform_reset_pre_conditional_logic_field_action/
+    - Added message on entry export if the PHP readfile function is not available, which had been causing an empty .csv file to be downloaded.
+
+    - Updated English translations (NZ, ZA). Credit: Ross McKay.
+
 ------------------------------------------------------------------------------------------------------------------
 Version 2.0.7
     - Added security enhancement. Credit: @c0mmand3rOpSec

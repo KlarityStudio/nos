@@ -4,22 +4,20 @@ if ( ! class_exists( 'GFForms' ) ) {
 	die();
 }
 
-//Prints required tooltip scripts
-add_action( 'admin_print_scripts', 'print_tooltip_scripts' );
 /**
- * Prints scripts required by the tooltips
+ * Enqueue the styles and scripts required for the tooltips.
  */
-function print_tooltip_scripts() {
+function enqueue_tooltip_scripts() {
 
 	$min = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG || isset( $_GET['gform_debug'] ) ? '' : '.min';
 
 	wp_enqueue_style( 'gform_tooltip', GFCommon::get_base_url() . "/css/tooltip{$min}.css", null, GFCommon::$version );
 	wp_enqueue_style( 'gform_font_awesome', GFCommon::get_base_url() . "/css/font-awesome{$min}.css", null, GFCommon::$version );
 
-	wp_print_scripts( 'gform_tooltip_init' );
-	wp_print_styles( array( 'gform_tooltip', 'gform_font_awesome' ) );
+	wp_enqueue_script( 'gform_tooltip_init' );
 
 }
+add_action( 'admin_enqueue_scripts', 'enqueue_tooltip_scripts' );
 
 global $__gf_tooltips;
 $__gf_tooltips = array(

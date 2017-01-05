@@ -13,14 +13,12 @@ wp-config.php
 wp-admin
 wp-content/blogs.dir/
 wp-content/upgrade/*
-wp-content/uploads/*
 wp-content/backup-db/*
 wp-content/advanced-cache.php
 wp-content/wp-cache-config.php
 wp-content/cache/*
 wp-content/cache/supercache/*
 wp-content/themes/twenty*
-wp-content/themes/uploads
 
 wp-content/mysql.sql
 
@@ -69,4 +67,23 @@ last-mod
 # site specific
 /wc-logs/
 wp-content/themes/nos/config.codekit
+
 .htaccess
+index.php
+license.txt
+readme.html
+wp-activate.php
+wp-admin/
+wp-blog-header.php
+wp-comments-post.php
+wp-config-sample.php
+wp-cron.php
+wp-includes/
+wp-links-opml.php
+wp-load.php
+wp-login.php
+wp-mail.php
+wp-settings.php
+wp-signup.php
+wp-trackback.php
+xmlrpc.php
