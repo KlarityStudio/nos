@@ -13,7 +13,7 @@
 ?>
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
     <?php 
-        if ( is_page('new-cars') ){
+        if ( is_page('new-cars') )
 
             get_template_part( 'includes/pages/page', 'new-cars' );
 
